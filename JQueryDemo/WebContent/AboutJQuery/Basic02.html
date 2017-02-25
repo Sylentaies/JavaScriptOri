@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Basic02</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$("#high").click(function() {
+			$("#para").addClass("highlight");
+			$("#para").text("This is a highlight paragraph");
+			$("#another").hide(3000);
+		});
+		$("#normal").click(function() {
+			$("#para").removeClass("highlight");
+			$("#para").text("This is a normal paragraph");
+			$("#another").show(3000, showCallBack);
+		});
+		$("#toggle").click(function() {
+			//$("#para").toggleClass("highlight");
+			if ($("#para").hasClass("highlight")) $("#para").removeClass("highlight");
+			else $("#para").addClass("highlight");
+		});
+	});
+	function showCallBack() {
+		alert("The paragraph is displayed again");
+	}
+</script>
+<style>
+	.highlight {
+		font-weight: bold;
+	}
+</style>
+</head>
+<body>
+<p id="para">This is a normal paragraph</p>
+<p id="another">This is another paragraph</p>
+<br />
+<button id="high">HighLight</button>
+<button id="normal">Normal</button>
+<button id="toggle">Toggle</button>
+</body>
+</html>

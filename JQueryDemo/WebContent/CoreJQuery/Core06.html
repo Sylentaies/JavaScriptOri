@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Core06</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$("#first").click(function() {
+			this.innerHTML = "First hyper text";
+		});
+		$("#second").click(function() {
+			$(this).html("Second hyper text");
+		});
+		$("#third").click(function() {
+			var headers = $("h1");
+			alert("There are " + headers.length + " hypertext");
+			var firstHeader = headers.eq(0);
+			firstHeader.html("Change first header again");
+			var secondHeader = headers.get(1);
+			secondHeader.innerHTML = "Change second header again";
+			var thirdHeader = headers[2];
+			thirdHeader.innerHTML = "Change third header.";
+		});
+		$("#compare").click(function() {
+			var s1 = $("h1");
+			var s2 = $("h1");
+			alert("s1==s2? " + (s1==s2));
+			var item1 = s1.get(0);
+			var item2 = s2.get(0);
+			alert("item1==item2? " + (item1==item2));
+			var eq1 = s1.eq(1);
+			var eq2 = s2.eq(1);
+			alert("eq1==eq2? " + (eq1==eq2));
+		});
+		$("#live").click(function() {
+			var para = $("p");
+			alert(para.length);
+			$("p").remove();
+			alert(para.length);
+		});
+	});
+</script>
+</head>
+<body>
+<h1 id="first">This is a hypertext</h1>
+<h1 id="second">This is another hypertext</h1>
+<h1 id="third">This is a third hypertext</h1>
+<br />
+<button id="compare">Compare</button>
+<br />
+<p>This is a live paragraph</p>
+<button id="live">Live</button>
+</body>
+</html>

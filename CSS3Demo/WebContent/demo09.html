@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	@keyframes myAnimation {
+		from { background:red; }
+		to { background:yellow; }
+	}
+
+	@-moz-keyframes myAnimation { /* Firefox */
+		from { background:red; }
+		to { background:yellow; }
+	}
+
+	@-webkit-keyframes myAnimation { /* Safari and Chrome */
+		from { background:red; }
+		to { background:yellow; }
+	}
+
+	@-o-keyframes Animation { /* Opera */
+		from { background:red; }
+		to { background:yellow; }
+	}
+	
+	div {
+		width: 100px;
+		height: 100px;
+		background: red;
+		/* IE does not support animation */
+		animation: myAnimation 5s;	
+		-moz-animation: myAnimation 5s; /* Firefox */
+		-webkit-animation: myAnimation 5s; /* Safari and Chrome */
+		-o-animation: myAnimation 5s; /* Opera */
+	}
+</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

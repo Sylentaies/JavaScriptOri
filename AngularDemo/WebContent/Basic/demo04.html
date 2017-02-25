@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo04</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script>
+	var firstController = function($scope) {
+		// Initialize the model variables
+	  	$scope.firstName = "Bruce";
+	  	$scope.lastName = "Lee";
+	
+	  	// Define utility functions
+	  	$scope.getFullName = function() {
+	    	return $scope.firstName + " " + $scope.lastName;
+	  	};
+	};
+	var secondController = function($scope) {
+	  	// Initialize the model variables
+	  	$scope.firstName = "Bob";
+	  	$scope.middleName = "Al";
+	  	$scope.lastName = "Smith";
+
+	  	// Define utility functions
+	  	$scope.getFullName = function() {
+	    	return $scope.firstName + " " + $scope.middleName + " " + $scope.lastName;
+	  	};
+	};
+</script>
+</head>
+<body ng-app>
+	<!-- This demo shows multiple controllers in Angular -->
+	<div ng-controller="firstController">
+		<h2>Model managed by the first controller</h2>
+		<strong>First Name: </strong> {{firstName}} 
+		<br />
+		<strong>Last Name: </strong> <span ng-bind="lastName"></span>
+		<br />
+		<strong>Full Name: </strong> {{getFullName()}}
+		<br />
+		<label>Set first name: <input type="text" ng-model="firstName"/></label>
+		<br />
+		<label>Set last name: <input type="text" ng-model="lastName"/></label>
+	</div>
+	<div ng-controller="secondController">
+		<h2>Model managed by the second controller</h2>
+		<strong>First Name: </strong> {{firstName}} 
+		<br />
+		<strong>Middle Name: </strong> {{middleName}} 
+		<br />
+		<strong>Last Name: </strong> <span ng-bind="lastName"></span>
+		<br />
+		<strong>Full Name: </strong> {{getFullName()}}
+		<br />
+		<label>Set first name: <input type="text" ng-model="firstName"/></label>
+		<br />
+		<label>Set middle name: <input type="text" ng-model="middleName"/></label>
+		<br />
+		<label>Set last name: <input type="text" ng-model="lastName"/></label>
+	</div>
+</body>
+</html>

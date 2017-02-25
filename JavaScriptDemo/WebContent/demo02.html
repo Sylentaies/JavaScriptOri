@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>IDemo02</title>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" 
+	type="text/css" media="screen">  
+<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	test("Test Constructor",function() {
+		var p = new Person("Bob",57);
+		equal(p.name,"Bob","p's name is Bob");
+		equal(p.age,57,"p's age is 57");
+		p.salary = 1000;
+		equal(p.salary,1000,"p's salary is 1000");
+		p.display = function() {
+			return this.name;
+		};
+		equal(p.display(),"Bob","p displays Bob");
+		var q = new Person("Alice",78);
+		equal(q.name,"Alice","q's name is Alice");
+		equal(q.age,78,"q's age is 78");
+		equal(q.salary,undefined,"q's salary is undefined");
+		ok(q.salary===undefined,"q's salary is really undefined");
+		Person.prototype.salary = 2000;
+		equal(q.salary,2000,"Now q's salary is 2000");
+		equal(p.salary,1000,"p's salary is still 1000");
+		delete p.salary;
+		equal(p.salary,2000,"Now p's salary is 2000");
+	}
+			
+	
+	)
+
+</script>
+</head>
+<body>
+<h1 id="qunit-header">QUnit Test Suite</h1>  
+<h2 id="qunit-banner"></h2>  
+<div id="qunit-testrunner-toolbar"></div>  
+<h2 id="qunit-userAgent"></h2>  
+<ol id="qunit-tests"></ol> 
+</body>
+</html>

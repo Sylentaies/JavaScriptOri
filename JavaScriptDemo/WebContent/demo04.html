@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo04</title>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" 
+	type="text/css" media="screen">  
+<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script >
+	var first = {};   //define  a naming space
+	first.name = "Sean";
+	first.hello = function(){ 
+		return "first";
+	}
+	var second = {
+			name:"Steven",
+			hello:function(){
+				return "second"
+			}
+	}
+	
+	test("Testing naming Space",function(){
+		equal(first.name, "Sean","first.name is Sean");
+		equal(second.name,"Steven","second.name is Steven");
+		equal(first.hello(),"first","first.hello() returns first");
+		equal(second.hello(),"second","second.hello() returns second");
+	})
+
+</script>
+</head>
+<body>
+<h1 id="qunit-header">QUnit Test Suite</h1>  
+<h2 id="qunit-banner"></h2>  
+<div id="qunit-testrunner-toolbar"></div>  
+<h2 id="qunit-userAgent"></h2>  
+<ol id="qunit-tests"></ol> 
+</body>
+</html>

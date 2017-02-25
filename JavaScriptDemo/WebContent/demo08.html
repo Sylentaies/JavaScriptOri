@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo08</title>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" 
+	type="text/css" media="screen">  
+<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script>
+	var name = "Sean";
+	function test1(){
+		return name;
+	}
+	function test2(){
+		var name = "Steven";
+		return name	;
+	}
+	test("Test JavaScript scope",function(){
+		equal(test1(),"Sean","The global variable name is Sean");
+		equal(test2(),"Steven","The global variable name is Steven");
+		//Test hoisting feature
+		equal(x,undefined,"x can also be accessed before its definition");
+		for (var x=0;x<10;x++){
+			//Do Something
+			for (var y=0; y<100;y++){
+				//Do Something
+			}
+		}
+		equal(x,10,"x can be accessed out of the for loop");
+		equal(y,100,"y can also be accessed outside");
+	});
+	
+	
+</script>
+</head>
+<body>
+<h1 id="qunit-header">QUnit Test Suite</h1>  
+<h2 id="qunit-banner"></h2>  
+<div id="qunit-testrunner-toolbar"></div>  
+<h2 id="qunit-userAgent"></h2>  
+<ol id="qunit-tests"></ol> 
+</body>
+</html>

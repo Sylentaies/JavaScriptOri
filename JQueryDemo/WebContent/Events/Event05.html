@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Event05</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$(".lightbulb").on("changeState", function(e) {	 
+			var $light = $(this); 
+			if ($light.hasClass("on")) { 
+				$light.trigger("turnOff");
+			} else { 
+			  	$light.trigger("turnOn");
+			} 
+		}).on("turnOn", function(e) {
+			$( this ).removeClass("off").addClass("on"); 
+		}).on("turnOff", function(e) {	 
+			$( this ).removeClass("on").addClass("off"); 
+		});	 
+		$(".switch, .clapper").click(function() {	 
+			$( this ).parent().find(".lightbulb").trigger("changeState"); 
+		});	 
+		$("#master_switch").click(function() {	 
+			if ($(".lightbulb.on").length) { 
+				$(".lightbulb").trigger("turnOff");			 
+			} else { 
+			    $(".lightbulb").trigger("turnOn");	 
+			}			 
+		});
+	});
+</script>
+<style>
+	.on {color: red}
+	.off {color: green}
+</style>
+</head>
+<body>
+<div class="room" id="kitchen">kitchen
+  <div class="lightbulb on">lightbulb</div>
+  <div class="switch">switch</div>
+  <div class="switch">switch</div>
+  <div class="clapper">clapper</div>
+</div>
+<div class="room" id="bedroom">bedroom
+  <div class="lightbulb on">lightbulb</div>
+  <div class="switch">switch</div>
+  <div class="switch">switch</div>
+  <div class="clapper">clapper</div>
+</div>
+<div id="master_switch">master switch</div>
+</body>
+</html>

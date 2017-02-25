@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Core07</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$("#parent").click(function() {
+			alert($("span.subchild").parent().attr("class"));
+			alert($("span.subchild").parents("div.parent").attr("class"));
+			var items = $("span.subchild").parents();
+			var msg = "";
+			for (var i=0; i<items.length; i++) {
+				msg += items.eq(i).attr("class") + "\n";
+			}
+			alert(msg);
+			items = $("span.subchild").parentsUntil("div.grandparent");
+			msg = "";
+			for (var i=0; i<items.length; i++) {
+				msg += items.eq(i).attr("class") + "\n";
+			}
+			alert(msg);
+			alert($("span.subchild").closest("div").attr("class"));
+			alert($("div.child").closest("div").attr("class"));
+		});
+		$("#child").click(function() {
+			var items = $("div.grandparent").children("div");
+			var msg = "";
+			for (var i=0; i<items.length; i++) {
+				msg += items.eq(i).attr("class") + "\n";
+			}
+			alert(msg);
+			var items = $("div.grandparent").find("div");
+			msg = "";
+			for (var i=0; i<items.length; i++) {
+				msg += items.eq(i).attr("class") + "\n";
+			}
+			alert(msg);
+		});
+		$("#sibling").click(function() {
+			alert($("div.parent").next().attr("class"));
+			alert($("div.parent").prev().attr("class"));
+			var items = $("div.parent").nextAll();
+			var msg = "";
+			for (var i=0; i<items.length; i++) {
+				msg += items.eq(i).attr("class") + "\n";
+			}
+			alert(msg);
+			items = $("div.surrogateParent1").siblings();
+			msg = "";
+			for (var i=0; i<items.length; i++) {
+				msg += items.eq(i).attr("class") + "\n";
+			}
+			alert(msg);
+		});
+	});
+</script>
+</head>
+<body class="body">
+<div class="grandparent">grandparent
+    <div class="parent">parent
+        <div class="child">child
+            <span class="subchild">subchild</span>
+        </div>
+    </div>
+    <div class="surrogateParent1">surrogateParent1</div>
+    <div class="surrogateParent2">surrogateParent2</div>
+</div>
+<br />
+<button id="parent">Parent</button>
+<button id="child">Child</button>
+<button id="sibling">Sibling</button>
+</body>
+</html>

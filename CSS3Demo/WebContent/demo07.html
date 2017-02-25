@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$("#rotateDiv").click(function() {
+			$("div").toggleClass("rotate");
+		});
+		$("#translateDiv").click(function() {
+			$("div").toggleClass("translate");
+		});
+		$("#scaleDiv").click(function() {
+			$("div").toggleClass("scale");
+		});
+		$("#skewDiv").click(function() {
+			$("div").toggleClass("skew");
+		});
+		$("#matrixDiv").click(function() {
+			$("div").toggleClass("matrix");
+		});
+		$("#rotateIn3D").click(function() {
+			$("div").toggleClass("rotate3D");
+		});
+	});
+</script>
+<style>
+	div {
+		margin: 30px;
+		width: 200px;
+		height: 100px;
+		background-color: yellow;
+	}
+	.rotate {
+		/* Rotate div */
+		transform: rotate(9deg);
+		-ms-transform: rotate(9deg); /* Internet Explorer */
+		-moz-transform: rotate(9deg); /* Firefox */
+		-webkit-transform: rotate(9deg); /* Safari and Chrome */
+		-o-transform: rotate(9deg); /* Opera */
+	}
+	.translate {
+		/* Translate div */
+		transform: translate(100px, 10px);			/* support translateX, translateY */
+		-ms-transform: translate(100px, 10px);
+		-moz-transform: translate(100px, 10px);
+		-webkit-transform: translate(100px, 10px);
+		-o-transform: translate(100px, 10px);
+	}
+	.scale {
+		/* Scale div */
+		transform: scale(2, 0.5);					/* support scaleX, scaleY */
+		-ms-transform: scale(2, 0.5);
+		-webkit-transform: scale(2, 0.5);
+		-o-transform: scale(2, 0.5);
+		-moz-transform: scale(2, 0.5);	
+		margin: 100px;
+	}
+	.skew {
+		/* Skew div */
+		transform: skew(30deg, 20deg);				/* support skewX, skewY */
+		-ms-transform: skew(30deg, 20deg);
+		-webkit-transform: skew(30deg, 20deg);
+		-o-transform: skew(30deg, 20deg);	
+		-moz-transform: skew(30deg, 20deg);	
+	}
+	.matrix {
+		/* Combine translate, scale and skew together */
+		transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+		-ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0);		
+		-moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);	
+		-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0);	
+		-o-transform:matrix(0.866,0.5,-0.5,0.866,0,0);	
+	}
+	.rotate3D {
+		/* rotate div in 3-dimension */
+		/* IE and Opera do not support 3D transform */
+		transform: rotateX(120deg);
+		-webkit-transform: rotateX(120deg); /* Safari and Chrome */
+		-moz-transform: rotateX(120deg); /* Firefox */
+	}
+</style>
+</head>
+<body>
+	<div>Hello World!</div>
+	<br />
+	<button id="rotateDiv">Rotate</button>
+	<button id="translateDiv">Translate</button>
+	<button id="scaleDiv">Scale</button>
+	<button id="skewDiv">Skew</button>
+	<button id="matrixDiv">Matrix</button>
+	<br />
+	<button id="rotateIn3D">Rotate in 3-Dimension</button>
+</body>
+</html>

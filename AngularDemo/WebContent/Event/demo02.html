@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo02</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script>
+angular.module("mainModule", [])
+	.controller("mainController", function ($scope) {
+  		// Initialization
+  		$scope.onKeyDownResult = "";
+  		$scope.onKeyUpResult = "";
+  		$scope.onKeyPressResult = "";
+
+  		// Utility functions
+
+  		var getKeyboardEventResult = function (keyEvent, keyEventDesc) {
+    		return keyEventDesc + " (keyCode: " + (window.event ? keyEvent.keyCode : keyEvent.which) + ")";
+  		};
+
+  		// Event handlers
+  		$scope.onKeyDown = function ($event) {
+    		$scope.onKeyDownResult = getKeyboardEventResult($event, "Key down");
+  		};
+
+  		$scope.onKeyUp = function ($event) {
+    		$scope.onKeyUpResult = getKeyboardEventResult($event, "Key up");
+  		};
+
+  		$scope.onKeyPress = function ($event) {
+    		$scope.onKeyPressResult = getKeyboardEventResult($event, "Key press");
+  		};
+	});
+</script>
+</head>
+<body ng-app="mainModule">
+	<div ng-controller="mainController">
+    	<label>Type something:
+      	<input type="text"
+             ng-keydown="onKeyDown($event)"
+             ng-keyup="onKeyUp($event)"
+             ng-keypress="onKeyPress($event)" />
+    	</label><br />
+    	<strong>KEY DOWN RESULT:</strong> {{onKeyDownResult}}<br />
+    	<strong>KEY UP RESULT:</strong> {{onKeyUpResult}}<br />
+    	<strong>KEY PRESS RESULT:</strong> {{onKeyPressResult}}
+  	</div>
+</body>
+</html>

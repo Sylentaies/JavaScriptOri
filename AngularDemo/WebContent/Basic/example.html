@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script>
+	var firstController = function($scope) {
+		// Initialize the model variables
+	  	$scope.value = 10;
+		
+	 	// Define utility functions
+	  	$scope.square = function() {
+	    	return $scope.value * $scope.value;
+	  	};
+	};
+	var secondController = function($scope) {
+		// Initialize the model variables
+	  	$scope.value = 50;
+	}
+	
+</script>
+</head>
+<body ng-app>
+	<div ng-controller="firstController">
+		<h2>An example of data binding</h2>
+		<strong>Input a number (1-100): </strong> 
+		<input type="number" min="1" max="100" ng-model="value"/>
+		<br />
+		<p>The square of your input: {{square()}}</p>
+	</div>
+	<div ng-controller="secondController">
+		<h2>Another example of data binding</h2>
+		<strong>Your credits: </strong> 
+		1<input type="range" min="1" max="100" value="{{value}}" ng-model="value"/>100
+		<br />
+		<p>The current credit is {{value}}</p>
+	</div>
+</body>
+</html>

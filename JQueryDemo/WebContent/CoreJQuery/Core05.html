@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Core05</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		var temp;
+		$("#append").click(function() {
+			$("#list").append($("#list li:first"));
+			$("#list").append("<li>Drink</li>");
+			$("<li>Water</li>").appendTo("#list");
+		});
+		$("#insertAfter").click(function() {
+			$("<h2>Another Line</h2>").insertAfter($("#list"));
+			$("<li>Water</li>").insertAfter($("li:first"));
+//			$("li:last").after("<li>Cake</li>");
+		});
+		$("#prepend").click(function() {
+			$("#list").prepend("<li>Meat</li>");
+		});
+		$("#clone").click(function() {
+			$("#list li:first").clone().appendTo("#list");
+			$("#list").clone().insertAfter($("#list"));
+		});
+		$("#remove").click(function() {
+			$("#list").remove();
+		});
+		$("#detach").click(function() {
+			if (temp) {
+				temp.prependTo("body");
+				temp = null;
+			} else {
+				temp = $("#list").detach();
+			}
+		});
+		$("#empty").click(function() {
+			$("#list").empty();
+		});
+	});
+</script>
+</head>
+<body>
+<ul id="list">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+<br />
+<button id="append">Append</button>
+<button id="insertAfter">Insert After</button>
+<button id="prepend">Prepend</button>
+<br />
+<button id="clone">Clone</button>
+<br />
+<button id="remove">Remove</button>
+<button id="detach">Detach</button>
+<button id="empty">Empty</button>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo01</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+</head>
+<body ng-app>
+	<h3>1. Show</h3>
+  	<label>Show the square: <input type="checkbox" ng-model="mustShow" /></label><br />
+  	<div ng-show="mustShow" style="width: 50px; height: 50px; background-color: red;"></div><br />
+  	<br />
+  	<h3>2. Hide</h3>
+  	<label>Hide the square: <input type="checkbox" ng-model="mustHide" /></label><br />
+  	<div ng-hide="mustHide" style="width: 50px; height: 50px; background-color: green;"></div>
+</body>
+</html>

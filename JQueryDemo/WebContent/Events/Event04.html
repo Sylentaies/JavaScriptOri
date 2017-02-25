@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Event04</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		/*$(".switch, .clapper").click(function() {
+			var item = $(this).parent().find(".lightbulb");
+			if (item.hasClass("on")) {
+				item.removeClass("on").addClass("off");
+			} else {
+				item.removeClass("off").addClass("on");
+			}
+		});*/
+		$(".lightbulb").on("changeState", function() {	// custom event: changeState
+			if ($(this).hasClass("on")) {
+				$(this).removeClass("on").addClass("off");
+			} else {
+				$(this).removeClass("off").addClass("on");
+			}
+		});
+		$(".switch, .clapper").click(function() {
+			$(this).parent().find(".lightbulb").trigger("changeState");
+		});
+	});
+</script>
+<style>
+	.on {color: red}
+	.off {color: green}
+</style>
+</head>
+<body>
+<div class="room" id="kitchen">room
+  <div class="lightbulb on">lightbulb</div>
+  <div class="switch">switch</div>
+  <div class="switch">switch</div>
+  <div class="clapper">clapper</div>
+</div>
+</body>
+</html>

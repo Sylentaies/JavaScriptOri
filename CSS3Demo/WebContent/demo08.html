@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div#div1 {
+		width: 100px;
+		height: 100px;
+		background: yellow;
+		/* IE does not support transition */
+		transition: width 2s;		
+		-moz-transition: width 2s; /* Firefox 4 */
+		-webkit-transition: width 2s; /* Safari and Chrome */
+		-o-transition: width 2s; /* Opera */
+	}
+
+	div#div1:hover {
+		width:300px;
+	}
+	
+	div#div2 {
+		width: 100px;
+		height: 100px;
+		background: yellow;
+		transition: width 2s, height 2s;
+		-moz-transition: width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
+		-webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+		-o-transition: width 2s, height 2s, -o-transform 2s; /* Opera */
+	}
+	
+	div#div2:hover {
+		width:200px;
+		height:200px;
+		transform: rotate(180deg);
+		-moz-transform:rotate(180deg); /* Firefox 4 */
+		-webkit-transform:rotate(180deg); /* Safari and Chrome */
+		-o-transform:rotate(180deg); /* Opera */
+	}
+</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<p>Move your mouse into the above yellow area.</p>
+	<div id="div2">A more fancy example that can not work under IE</div>
+</body>
+</html>

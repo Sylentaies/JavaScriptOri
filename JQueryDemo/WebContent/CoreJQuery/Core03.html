@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Core03</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>	
+	$(document).ready(function() {
+		$("#read").click(function() {
+			var url = $("a").attr("href");
+			alert(url);
+		});
+		$("#update").click(function() {
+			$("a").attr({
+				href: "http://www.yahoo.com"
+			});
+			$("a").text("Yahoo");
+		});
+		$("#para1").click(function(){
+			$(this).text("<b>Bold Paragraph</b>");
+		});
+		$("#para2").click(function(){
+			$(this).html("<b>Bold Paragraph</b>");
+		});
+	});
+</script>
+</head>
+<body>
+<a href="http://www.google.com">Google</a>
+<br />
+<br />
+<button id="read">Get Link</button>
+<button id="update">Update Link</button>
+<br />
+<br />
+<p id = "para1">First Paragraph<p>
+<p id = "para2">First Paragraph<p>
+
+</body>
+</html>

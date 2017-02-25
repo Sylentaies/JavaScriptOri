@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	.article {
+		/* IE does not support column-count */
+		column-count:3;
+		-moz-column-count:3; 		/* Firefox */
+		-webkit-column-count:3; 	/* Safari and Chrome */
+		column-gap:30px;
+		-moz-column-gap:30px; 		/* Firefox */
+		-webkit-column-gap:30px; 	/* Safari and Chrome */
+	}
+</style>
+</head>
+<body>
+	<h1>The following multiple column feature is not supported in IE</h1>
+	<div class="article">
+		The org.springframework.beans.factory.BeanFactory is the actual representation of the Spring IoC container that is responsible for containing 
+		and otherwise managing the aforementioned beans. The BeanFactory interface is the central IoC container interface in Spring. Its responsibilities 
+		include instantiating or sourcing application objects, configuring such objects, and assembling the dependencies between these objects. There are 
+		a number of implementations of the BeanFactory interface that come supplied straight out-of-the-box with Spring. The most commonly used 
+		BeanFactory implementation is the XmlBeanFactory class. This implementation allows you to express the objects that compose your application, 
+		and the doubtless rich interdependencies between such objects, in terms of XML. The XmlBeanFactory takes this XML configuration metadata and 
+		uses it to create a fully configured system or application.
+	</div>
+</body>
+</html>

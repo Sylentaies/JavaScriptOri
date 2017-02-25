@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo01</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+</head>
+<body ng-app ng-init="firstName='Bruce'; lastName='Lee';">
+	<!-- This demo shows data binding in Angular -->
+	<strong>First Name: </strong> {{firstName}} 
+	<br />
+	<strong>Last Name: </strong> <span ng-bind="lastName"></span>
+	<!-- 
+		First way of binding: {{varName}}
+		Second way of binding: ng-bind="varName"
+	 -->
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Core04</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$("#change").click(function() {
+			$("body").find("h3")
+				.eq(2).html("New text for the third h3").end()
+				.eq(0).html("New text for the first h3");
+			//$(this).width(300);
+			$(this).css("width", "300px");
+		});
+		$("#state").find("option[value='MD']").attr("selected",true);
+	});
+</script>
+</head>
+<body>
+<h3>This is first paragraph</h3>
+<h3>This is second paragraph</h3>
+<h3>This is third paragraph</h3>
+<br />
+<button id="change">Change</button>
+<br />
+<br />
+<select id = "state">
+	<option value = ""></option>
+	<option value = "NJ">New Jersy</option>
+	<option value = "NY">New York</option>
+	<option value = "MD">Maryland</option>
+	<option value = "VA">Virginia</option>
+	<option value = "TX">Texas</option>
+	
+</select>
+</body>
+</html>

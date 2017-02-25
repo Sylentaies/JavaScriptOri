@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo01</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script>
+//A simple module with no dependencies
+angular.module("mainModule", []).controller("simpleController", function ($scope) {
+	// Initialize the model
+	$scope.person = {
+		firstName: "Bruce",
+      	lastName: "Lee",
+
+      	// Define utility functions on the model object
+      	getFullName: function () {
+        	return this.firstName + " " + this.lastName;
+      	}
+	};
+});
+</script>
+</head>
+<body ng-app="mainModule">
+	<div ng-controller="simpleController">
+    	<strong>First name:</strong> {{person.firstName}}
+    	<br />
+    	<strong>Last name:</strong> {{person.lastName}}
+    	<br />
+    	<strong>Full name:</strong> {{person.getFullName()}}
+    	<br />
+    	<br />
+    	<label>Set the first name: <input type="text" ng-model="person.firstName"/></label>
+    	<br />
+    	<label>Set the last name: <input type="text" ng-model="person.lastName"/></label>
+  	</div>
+</body>
+</html>

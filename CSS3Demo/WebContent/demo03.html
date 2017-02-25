@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div {
+		border:15px solid transparent;
+		width:300px;
+		padding:10px 20px;
+	}
+	#round {
+		/* 
+			border-image is a new feature in CSS3.
+			IE does not support border-image
+		*/
+		border-image:url(images/border.png) 30 30 round;	
+	}
+	#stretch {
+		border-image:url(images/border.png) 30 30 stretch;
+	}
+</style>
+</head>
+<body>
+	<div id="round">The image fill all the borders</div>
+	<br>
+	<div id="stretch">The image is stretched to fill the area</div>
+	<p>Here is the image we use</p>
+	<img src="images/border.png">
+</body>
+</html>

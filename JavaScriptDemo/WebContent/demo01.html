@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo01</title>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" 
+	type="text/css" media="screen">  
+<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script>
+	var theName="Sean";
+	var greet1=function(){
+		return theName;
+	}
+	var greet2 = function(){
+		return this.theName;
+	}
+	//Test Suite
+	
+	test("Understandd this key word",function(){
+		equal(greet1(),"Sean","greet1() returns Sean, which is a global variabel");
+		equal(greet2(),"Sean","greet2() returns Sean, this means window");
+		equal(window.theName,"Sean","window.theName is Sean");
+		//Now we define anotherName in this function
+		var anotherName="Bob";
+		var greet3 = function(){
+			return this.anotherName;
+		}
+		equal(greet3(), undefined, "In greet3()).this.anotherName is undefinde");
+		//Now we define an object that contains anotherName
+		var steven= {
+			anotherName:"Steven",
+			greet: greet3
+		}
+		equal(steven.greet(),"Steven","In greet(), this.anotherName is Steven");
+		
+	})
+
+
+</script>
+</head>
+<body>
+<h1 id="qunit-header">QUnit Test Suite</h1>  
+<h2 id="qunit-banner"></h2>  
+<div id="qunit-testrunner-toolbar"></div>  
+<h2 id="qunit-userAgent"></h2>  
+<ol id="qunit-tests"></ol> 
+
+</body>
+</html>

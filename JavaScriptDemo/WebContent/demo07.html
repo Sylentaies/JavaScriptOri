@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Demo07</title>
+<link rel="stylesheet"
+	href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css"
+	media="screen">
+<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script>
+	var foo = function(context){
+		var id = 0;
+		context.next = function(){
+			return id++;
+		};
+		context.reset = function(){
+			id = 0;
+		};
+	};
+	
+	test ("Test Dynamic Naming Spacing",function(){
+		var first = {};
+		foo(first);
+		equal (first.next(), 0,"first.id is 0 and is increased to 1");
+		equal (first.next(), 1,"first.id is 1 and is increased to 2");
+		first.reset();
+		equal (first.next(), 0,"first.id is 0 and is increased to 1");
+		var second = {
+				name: "Sean"
+		}
+		foo(second);
+		equal (second.next(), 0,"first.id is 0 and is increased to 1");
+		equal (second.next(), 1,"first.id is 1 and is increased to 2");
+		second.reset();
+		equal (second.next(), 0,"first.id is 0 and is increased to 1");
+		equal(second.name, "Sean", "second.name is not infected");
+		
+	});
+
+	
+
+</script>
+</head>
+<body>
+	<h1 id="qunit-header">QUnit Test Suite</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+</body>
+</html>

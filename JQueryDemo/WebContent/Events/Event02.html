@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Event02</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function() {
+		$("#b").on("click", {foo: "bar"}, function(event) {
+			$("#x").text(event.pageX);
+			$("#y").text(event.pageY);
+			$("#t").text(event.type);
+			$("#w").text(event.which);
+			$("#d").text(event.data.foo);
+			$("#tp").text(event.target.id);
+			$("#ts").text(event.timeStamp);
+		});
+		$("h2").on({
+			click: function() {	// click or "click"
+				alert("Click on h2");
+			},
+			"mouseover": function() {
+				alert("Mouseover on h2");
+				$(this).off("mouseover");
+			},
+		});
+		$("h2").one("hover", function() {
+			alert("Hover h2 only once");
+		});
+	});
+</script>
+</head>
+<body>
+<p>Mouse x-position: <strong id="x"></strong></p>
+<p>Mouse y-position: <strong id="y"></strong></p>
+<p>Type of the event: <strong id="t"></strong></p>
+<p>Which is the event: <strong id="w"></strong></p>
+<p>Data in the event: <strong id="d"></strong></p>
+<p>Target in the event: <strong id="tp"></strong></p>
+<p>TimeStamp of the event: <strong id="ts"></strong></p>
+
+<button id="b">Click Me</button>
+<h2>This is a hyper text</h2>
+</body>
+</html>

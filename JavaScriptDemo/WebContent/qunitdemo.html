@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>QUnit Demo</title>
+<!--  link, rel, href,type   -->
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" 
+	type="text/css" media="screen">  
+<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script>
+	test("Simple test", function() {
+		ok(5==2+3, "5 is equal to 2+3");
+		equal(5, 2+3, "5 is equal to 2+3");
+	});
+</script>
+
+</head>
+<body>
+<h1 id="qunit-header">QUnit Test Suite</h1>  
+<h2 id="qunit-banner"></h2>  
+<div id="qunit-testrunner-toolbar"></div>  
+<h2 id="qunit-userAgent"></h2>  
+<ol id="qunit-tests"></ol> 
+</body>
+</html>
